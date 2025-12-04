@@ -1,0 +1,333 @@
+<!--
+/**
+ * MORAIS ADVOCACIA - WEBSITE PRINCIPAL
+ * ====================================
+ * 
+ * @description: Landing page para escritório de advocacia especializado em direito previdenciário
+ * @author: Desenvolvedor Web - Gabriel Ryan
+ * @version: 1.0
+ * @created: Dezembro 2025
+ * 
+ * @purpose: 
+ * - Apresentar os serviços do escritório
+ * - Capturar leads através de formulário de cadastro
+ * - Fornecer informações sobre direito previdenciário
+ * - Estabelecer credibilidade e confiança com potenciais clientes
+ * 
+ * @features:
+ * - Design responsivo para dispositivos móveis
+ * - Otimizado para SEO e acessibilidade
+ * - Compatível com leitores de tela
+ * - Integração com redes sociais (Open Graph)
+ */
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!--
+/**
+ * HEAD SECTION - METADADOS E CONFIGURAÇÕES
+ * ========================================
+ * 
+ * @description: Contém todas as configurações, metadados e recursos necessários
+ * @includes: Meta tags SEO, Open Graph, favicons, folhas de estilo
+ */
+-->
+
+<head>
+  <!-- 
+  /**
+   * CONFIGURAÇÕES BÁSICAS
+   * @charset: Define codificação UTF-8 para suporte a caracteres especiais
+   * @viewport: Configuração para responsividade em dispositivos móveis
+   */
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 
+  /**
+   * SEO META TAGS - OTIMIZAÇÃO PARA MECANISMOS DE BUSCA
+   * @title: Título otimizado com palavras-chave relevantes
+   * @description: Descrição concisa para aparecer nos resultados de busca
+   * @keywords: Palavras-chave para indexação (Google, Bing, etc.)
+   * @author: Identifica o autor/empresa responsável
+   * @robots: Instrui crawlers sobre como indexar a página
+   */
+  -->
+  <title>Morais Advocacia - Especialistas em Direito Previdenciário</title>
+  <meta name="description"
+    content="Escritório de advocacia especializado em direito previdenciário. Orientação simples, rápida e sem complicação para garantir seus direitos previdenciários." />
+
+  <meta name="keywords"
+    content="advocacia, direito previdenciário, aposentadoria, INSS, benefícios, advogado previdenciário" />
+
+  <meta name="author" content="Morais Advocacia" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- 
+  /**
+   * OPEN GRAPH META TAGS - COMPARTILHAMENTO EM REDES SOCIAIS
+   * @og:title: Título quando compartilhado no Facebook, LinkedIn, WhatsApp
+   * @og:description: Descrição exibida no preview de compartilhamento
+   * @og:type: Define o tipo de conteúdo (website, article, etc.)
+   * @og:locale: Idioma e região do conteúdo
+   */
+  -->
+  <meta property="og:title" content="Morais Advocacia - Especialistas em Direito Previdenciário" />
+  <meta property="og:description"
+    content="Orientação simples, rápida e sem complicação para garantir seus direitos previdenciários." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt-BR" />
+
+  <!-- 
+  /**
+   * FAVICONS - ÍCONES DO SITE
+   * @favicon: Ícone padrão exibido na aba do navegador
+   * @apple-touch-icon: Ícone para dispositivos iOS quando salvo na tela inicial
+   */
+  -->
+  <link rel="icon" type="image/x-icon" href="img/Logo/favicon.ico" />
+  <link rel="apple-touch-icon" href="img/Logo/apple-touch-icon.png" />
+
+  <!-- 
+  /**
+   * FOLHA DE ESTILO PRINCIPAL
+   * @stylesheet: Arquivo CSS contendo toda a estilização visual da página
+   */
+  -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<!--
+/**
+ * BODY - ESTRUTURA PRINCIPAL DA PÁGINA
+ * ====================================
+ * 
+ * @description: Contém todo o conteúdo visível da página
+ * @layout: Container principal centralizando o conteúdo
+ * @sections: Header, Main, Footer
+ */
+-->
+
+<body>
+  <!-- 
+  /**
+   * CONTAINER PRINCIPAL
+   * @purpose: Centraliza e limita a largura máxima do conteúdo
+   * @responsive: Adapta-se a diferentes tamanhos de tela
+   */
+  -->
+  <div class="container">
+
+    <!--
+    /**
+     * HEADER - CABEÇALHO DA PÁGINA
+     * ============================
+     * 
+     * @description: Seção superior contendo logo e navegação principal
+     * @role: "banner" - Landmark semântico para leitores de tela
+     * @components: Logo clicável + Menu de navegação
+     * @accessibility: ARIA labels para melhor experiência com leitores de tela
+     */
+    -->
+    <header role="banner">
+
+      <!--
+      /**
+       * ÁREA DO LOGO
+       * @purpose: Exibe a identidade visual da empresa
+       * @components: Ícone "M" + Texto "Morais Advocacia"
+       * @functionality: Link clicável para voltar ao início da página
+       * @accessibility: aria-label descritivo para usuários de leitores de tela
+       */
+      -->
+      <div class="logo-area">
+        <a href="#" class="logo-link" aria-label="Morais Advocacia - Página inicial">
+          <img src="../img/logo/logoSemFundo.png" alt="Logo Morais Advocacia" class="logo-image" />
+          <div class="logo-text">Morais Advocacia</div>
+        </a>
+      </div>
+
+      <!--
+      /**
+       * NAVEGAÇÃO PRINCIPAL
+       * @description: Menu horizontal com links para seções da página
+       * @role: "navigation" - Identifica como área de navegação
+       * @structure: Lista não ordenada para semântica adequada
+       * @links: Sobre, Serviços, Ajuda + Botão de Cadastro
+       * @accessibility: Cada link possui aria-label descritivo
+       * @behavior: Links apontam para âncoras na mesma página (#sobre, #servicos, etc.)
+       */
+      -->
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-menu">
+          <li><a href="#sobre" class="nav-item">Sobre</a></li>
+          <li><a href="#servicos" class="nav-item">Serviços</a></li>
+          <li><a href="#ajuda" class="nav-item">Ajuda</a></li>
+          <li><a href="#contato" class="btn-outline" role="button">Cadastrar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--
+    /**
+     * MAIN - CONTEÚDO PRINCIPAL DA PÁGINA
+     * ===================================
+     * 
+     * @description: Seção principal contendo o conteúdo mais importante
+     * @role: "main" - Landmark semântico indicando conteúdo principal
+     * @components: Hero section com call-to-action
+     */
+    -->
+    <main role="main">
+
+      <!--
+      /**
+       * HERO SECTION - SEÇÃO DE DESTAQUE PRINCIPAL
+       * ==========================================
+       * 
+       * @description: Primeira seção vista pelo usuário, com maior impacto visual
+       * @purpose: Capturar atenção e comunicar proposta de valor
+       * @layout: Duas colunas - imagem à esquerda, conteúdo à direita
+       * @accessibility: aria-labelledby conecta a seção ao título principal
+       * 
+       * @components:
+       * - Imagem ilustrativa (lado esquerdo)
+       * - Título principal (hero-title)
+       * - Texto explicativo (hero-text) 
+       * - Botões de ação (hero-actions)
+       * 
+       * @conversion_goal: Levar usuário a se cadastrar ou saber mais
+       */
+      -->
+      <section class="hero" aria-labelledby="hero-title">
+
+        <!--
+        /**
+         * ÁREA DA IMAGEM ILUSTRATIVA
+         * @description: Elemento visual de apoio ao conteúdo textual
+         * @role: "img" - Indica que é uma imagem decorativa
+         * @accessibility: aria-label descreve o conteúdo para leitores de tela
+         * @styling: Background definido via CSS (provavelmente imagem de fundo)
+         */
+        -->
+        <div class="hero-image" role="img" aria-label="Representação visual do direito previdenciário"></div>
+
+        <!--
+        /**
+         * CONTEÚDO TEXTUAL PRINCIPAL
+         * @description: Área com a mensagem principal e call-to-actions
+         * @hierarchy: H1 (título) > Parágrafo (descrição) > Botões (ações)
+         */
+        -->
+        <div class="hero-content">
+
+          <!--
+          /**
+           * TÍTULO PRINCIPAL (H1)
+           * @description: Frase de impacto que comunica o valor da empresa
+           * @seo: H1 é crucial para SEO, contém palavras-chave principais
+           * @accessibility: id="hero-title" conecta com aria-labelledby da section
+           * @formatting: Quebras de linha (<br>) para controle visual
+           */
+          -->
+          <h1 id="hero-title" class="hero-title">
+            FACILITANDO<br />
+            SEU DIREITO<br />
+            PREVIDENCIÁRIO
+          </h1>
+
+          <!--
+          /**
+           * TEXTO EXPLICATIVO
+           * @description: Explica a proposta de valor de forma mais detalhada
+           * @purpose: Convencer o usuário sobre os benefícios do serviço
+           * @tone: Simples, direto e focado no cliente
+           */
+          -->
+          <p class="hero-text">
+            Informe sua situação e receba orientação simples e rápida sobre seu benefício. Estamos aqui para tirar suas
+            dúvidas e ajudar você a garantir seus direitos.”
+          </p>
+
+          <!--
+          /**
+           * ÁREA DE AÇÕES (CALL-TO-ACTION)
+           * @description: Botões para conversão do usuário
+           * @strategy: Botão primário (ação principal) + botão secundário (informação)
+           * @accessibility: role="button" e aria-label descritivos
+           * @conversion: Links apontam para âncoras de seções específicas
+           * 
+           * @buttons:
+           * - "Cadastrar": Ação principal de conversão
+           * - "Mais detalhes": Ação secundária para usuários indecisos
+           */
+          -->
+          <div class="hero-actions">
+            <a href="#cadastrar" class="btn-primary" role="button"
+              aria-label="Cadastrar para receber orientação jurídica">Cadastrar</a>
+            <a href="#detalhes" class="btn-secondary" role="button"
+              aria-label="Saiba mais detalhes sobre nossos serviços">Mais Detalhes</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--
+    /**
+     * FOOTER - RODAPÉ DA PÁGINA
+     * =========================
+     * 
+     * @description: Seção inferior com informações institucionais
+     * @role: "contentinfo" - Landmark semântico para informações sobre o site
+     * @purpose: Exibir copyright, credibilidade e informações legais
+     * @positioning: Sempre no final da página, após todo conteúdo principal
+     * 
+     * @legal_importance: 
+     * - Copyright estabelece propriedade intelectual
+     * - Especialização reforça credibilidade profissional
+     * - Informações consistentes com meta tags e título
+     */
+    -->
+    <footer role="contentinfo" class="footer">
+
+      <!--
+      /**
+       * CONTEÚDO DO RODAPÉ
+       * @description: Container para informações centralizadas
+       * @content: Copyright + área de especialização
+       * @styling: Texto centralizado, fonte menor, cor neutra
+       */
+      -->
+      <div class="footer-content">
+        <!-- Copyright: Proteção legal da marca e conteúdo -->
+        <p>&copy; 2025 Morais Advocacia. CNPJ 00.000.000/0000-00. Todos os direitos reservados.</p>
+        <!-- Especialização: Reforça expertise e confiabilidade -->
+        <p>Especialistas em Direito Previdenciário</p>
+      </div>
+    </footer>
+
+  </div> <!-- Fim do container principal -->
+</body>
+
+<!--
+/**
+ * FIM DO DOCUMENTO HTML
+ * ====================
+ * 
+ * @summary: Página completa com estrutura semântica, acessibilidade e SEO
+ * @performance: Otimizada para carregamento rápido
+ * @maintenance: Código bem documentado para facilitar futuras alterações
+ * @scalability: Estrutura preparada para adicionar novas seções
+ * 
+ * @next_steps:
+ * - Adicionar seções: #sobre, #servicos, #ajuda, #contato
+ * - Implementar formulário de cadastro
+ * - Integrar com sistema de CRM/email marketing
+ * - Adicionar analytics (Google Analytics, Facebook Pixel)
+ * - Implementar chat online ou WhatsApp Business
+ */
+-->
+
+</html>

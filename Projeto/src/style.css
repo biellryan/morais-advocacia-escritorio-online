@@ -1,0 +1,727 @@
+/**
+ * MORAIS ADVOCACIA - FOLHA DE ESTILO PRINCIPAL
+ * ===========================================
+ * 
+ * @description: Estilização completa para website de advocacia
+ * @author: Desenvolvedor Web
+ * @version: 1.0
+ * @created: Dezembro 2025
+ * 
+ * @color_scheme: Tema escuro profissional
+ * - Primária: #2c2c30 (cinza escuro)
+ * - Secundária: #f1c86b (dourado/amarelo)
+ * - Texto: #ffffff (branco)
+ * - Texto secundário: #d1d1d8 (cinza claro)
+ * 
+ * @layout_strategy: 
+ * - Mobile-first responsive design
+ * - Flexbox para layout flexível
+ * - Container centralizado com largura máxima
+ * 
+ * @accessibility: 
+ * - Contrastes adequados (WCAG 2.1)
+ * - Tamanhos de fonte legíveis
+ * - Estados de hover/focus visíveis
+ */
+
+/**
+ * ==========================================
+ * SEÇÃO 1: RESET E CONFIGURAÇÕES GLOBAIS
+ * ==========================================
+ */
+
+/**
+ * RESET UNIVERSAL
+ * @description: Remove margens/paddings padrão e define box-sizing consistente
+ * @purpose: Garantir comportamento previsível em todos os navegadores
+ * @impact: Base sólida para construção do layout
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**
+ * CONFIGURAÇÃO DO BODY
+ * @font_stack: System fonts para melhor performance e legibilidade
+ * @background: Cor escura profissional (#2c2c30)
+ * @color: Texto branco para contraste adequado
+ * @rationale: Tema escuro transmite seriedade e profissionalismo
+ */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    background-color: #2c2c30;
+    color: #ffffff;
+}
+
+/**
+ * RESET DE LINKS
+ * @purpose: Remove sublinhado padrão e herda cor do elemento pai
+ * @benefit: Controle total sobre aparência dos links
+ */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/**
+ * ==========================================
+ * SEÇÃO 2: LAYOUT E ESTRUTURA PRINCIPAL
+ * ==========================================
+ */
+
+/**
+ * CONTAINER PRINCIPAL
+ * @description: Wrapper que centraliza e limita largura do conteúdo
+ * @max_width: 1200px - Largura ideal para desktop
+ * @margin: 0 auto - Centralização horizontal
+ * @padding: Espaçamento interno responsivo
+ * @purpose: Manter conteúdo legível em telas grandes e pequenas
+ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+/**
+ * ==========================================
+ * SEÇÃO 3: HEADER E NAVEGAÇÃO
+ * ==========================================
+ */
+
+/**
+ * HEADER PRINCIPAL
+ * @layout: Flexbox horizontal
+ * @purpose: Posicionar logo à esquerda e navegação à direita
+ * @spacing: justify-content separa elementos automaticamente
+ * @responsive: Adapta-se a diferentes tamanhos de tela
+ */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 20px;
+}
+
+/**
+ * ÁREA DO LOGO
+ * @description: Container do logo da empresa
+ * @layout: Flexbox horizontal para alinhar ícone e texto
+ * @gap: Espaçamento de 10px entre ícone e texto
+ * @purpose: Criar identidade visual clara e clicável
+ */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/**
+ * ÍCONE DO LOGO
+ * @description: Círculo com letra "M" representando Morais
+ * @dimensions: 32x32px - Tamanho adequado para header
+ * @styling: Círculo com borda dourada (#f1c86b)
+ * @typography: Fonte bold, cor dourada, centralizada
+ * @purpose: Elemento visual marcante e memorável
+ */
+/**
+ * IMAGEM DO LOGO
+ * @description: Logo da empresa em formato de imagem com qualidade otimizada
+ * @dimensions: 48x48px - Tamanho maior para melhor qualidade
+ * @anti_aliasing: image-rendering otimizado para suavidade
+ * @object_fit: Contain preserva proporções sem cortar
+ * @purpose: Identidade visual profissional sem pixelização
+ */
+.logo-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: contain;
+    /* Propriedades para melhorar qualidade da imagem */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: auto;
+    /* Suavização de bordas */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * HOVER STATE - LOGO COMPLETO (IMAGEM + TEXTO)
+ * @description: Efeitos visuais sincronizados ao passar mouse sobre qualquer parte do logo
+ * @effects: Aumento, brilho e mudança de cor coordenados
+ * @target: Tanto imagem quanto texto respondem igual
+ */
+
+/* Efeito na imagem quando hover no link inteiro */
+.logo-link:hover .logo-image {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Efeito no texto quando hover no link inteiro */
+.logo-link:hover .logo-text {
+    color: #f1c86b;
+    transform: scale(1.05);
+}
+
+/* Transições suaves para ambos os elementos */
+.logo-image {
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.logo-text {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/**
+ * OTIMIZAÇÃO PARA TELAS DE ALTA RESOLUÇÃO (RETINA)
+ * @description: Melhora qualidade em displays de alta densidade de pixels
+ * @target: MacBook, iPhone, monitores 4K, etc.
+ */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .logo-image {
+        /* Para telas Retina, aumentamos ligeiramente o tamanho */
+        width: 50px;
+        height: 50px;
+        /* Renderização otimizada para alta resolução */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+    }
+}
+
+/**
+ * ÍCONE DO LOGO (FALLBACK)
+ * @description: Versão alternativa com letra caso imagem não carregue
+ * @note: Mantido para compatibilidade, mas substituído pela imagem
+ */
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #f1c86b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1c86b;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/**
+ * TEXTO DO LOGO
+ * @description: Nome da empresa ao lado da imagem/ícone
+ * @size: 18px - Tamanho aumentado para melhor legibilidade
+ * @weight: 500 - Peso médio para elegância
+ * @purpose: Reforça identidade da marca junto com logo
+ */
+.logo-text {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+    color: #d1d1d8;
+}
+
+/* Estilos para a nova navegação em lista */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+/* Estilos para o logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: #d1d1d8;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: #f1c86b;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #f1c86b;
+    transition: width 0.2s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/**
+ * BOTÃO OUTLINE (CADASTRAR NO HEADER)
+ * @description: Botão translúcido com sombra de fundo destacando
+ * @effect: Background semi-transparente + sombra dourada para destaque
+ * @interaction: Hover torna sólido mantendo elegância
+ */
+.btn-outline {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #f1c86b;
+    color: #f1c86b;
+    font-size: 14px;
+    background: rgba(241, 200, 107, 0.1);
+    /* Fundo translúcido dourado */
+    backdrop-filter: blur(10px);
+    /* Efeito de vidro */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    /* Sombra de fundo destacando */
+    box-shadow:
+        0 4px 12px rgba(241, 200, 107, 0.3),
+        /* Sombra dourada de destaque */
+        0 2px 6px rgba(241, 200, 107, 0.2),
+        0 8px 20px rgba(0, 0, 0, 0.1),
+        /* Sombra preta sutil */
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Brilho dourado sutil na borda */
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 20px;
+    background: linear-gradient(145deg,
+            rgba(241, 200, 107, 0.3),
+            transparent,
+            rgba(241, 200, 107, 0.3));
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/**
+ * HOVER STATE - BOTÃO OUTLINE
+ * @description: Torna o botão sólido com cor cheia
+ */
+.btn-outline:hover {
+    background: linear-gradient(145deg, #f1c86b, #e6b95c);
+    /* Sólido no hover */
+    color: #2c2c30;
+    transform: translateY(-2px);
+    backdrop-filter: none;
+    /* Remove o blur no hover */
+    box-shadow:
+        0 6px 16px rgba(241, 200, 107, 0.4),
+        0 3px 8px rgba(241, 200, 107, 0.3),
+        0 10px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover::before {
+    opacity: 0.8;
+}
+
+/**
+ * ACTIVE STATE - BOTÃO OUTLINE (CLIQUE)
+ * @description: Efeito de pressionamento suave
+ */
+.btn-outline:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline:active::before {
+    opacity: 0.4;
+}
+
+/**
+ * ==========================================
+ * SEÇÃO 4: HERO SECTION (SEÇÃO PRINCIPAL)
+ * ==========================================
+ */
+
+/**
+ * CONTAINER HERO
+ * @description: Seção de destaque principal da página
+ * @layout: CSS Grid com 2 colunas (imagem + conteúdo)
+ * @background: #29292e - Tom ligeiramente mais claro que o fundo
+ * @spacing: Margin-top separa do header, padding interno de 28px
+ * @grid_ratio: 1.5fr (imagem) : 1fr (conteúdo) - Imagem maior para mais impacto
+ * @purpose: Primeira impressão e conversão do usuário
+ */
+/**
+ * CONTAINER HERO
+ * @description: Layout sobreposto com texto invadindo a imagem, centralizado
+ * @layout: CSS Grid com sobreposição elegante e centralização
+ * @background: #29292e - Tom ligeiramente mais claro que o fundo
+ * @spacing: Margin auto para centralização, padding reduzido para sobreposição
+ * @grid_ratio: Colunas sobrepostas para efeito de fusão
+ * @purpose: Criar integração visual entre imagem e texto centralizada
+ */
+.hero {
+    margin: 10px auto 0 auto;
+    /* Centraliza horizontalmente */
+    margin-left: 20px;
+    /* Move conjunto para centralizar melhor */
+    max-width: 1200px;
+    /* Limita largura para melhor centralização */
+    background: #29292e;
+    border-radius: 18px;
+    padding: 28px 28px 28px 100px;
+    /* Ainda mais padding esquerdo */
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 0px;
+    /* Remove gap para permitir sobreposição */
+    align-items: center;
+    position: relative;
+}
+
+/**
+ * IMAGEM DO HERO
+ * @description: Área visual de apoio ao conteúdo textual
+ * @dimensions: Altura fixa de 320px, largura flexível
+ * @background: Imagem de fundo (definida via CSS ou JS)
+ * @styling: Bordas arredondadas para suavidade visual
+ * @purpose: Impacto visual e comunicação não-verbal
+ */
+
+.hero-image {
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/escritorio/deusaGregaThemis\,.jpg");
+    /* troque a URL pela sua imagem */
+    position: relative;
+}
+
+/**
+ * SOBREPOSIÇÃO DA IMAGEM HERO
+ * @description: Gradiente otimizado para imagem mais larga
+ * @effect: Fade out horizontal suave + escurecimento sutil
+ * @purpose: Transição elegante entre imagem expandida e texto
+ */
+.hero-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        /* Gradiente horizontal para misturar suavemente com o fundo */
+        linear-gradient(to right,
+            rgba(44, 44, 48, 0) 0%,
+            /* Totalmente transparente */
+            rgba(44, 44, 48, 0) 35%,
+            /* Mantém imagem visível por mais tempo */
+            rgba(44, 44, 48, 0) 60%,
+            /* Ainda transparente */
+            rgba(44, 44, 48, 0.5) 75%,
+            /* Início mais concentrado */
+            rgba(44, 44, 48, 0.9) 85%,
+            /* Transição bem forte */
+            rgba(44, 44, 48, 1) 90%,
+            /* Mistura quase total */
+            rgba(44, 44, 48, 1) 100%
+            /* Mistura completa garantida */
+        );
+}
+
+/**
+ * CONTEÚDO DO HERO COM SOBREPOSIÇÃO
+ * @description: Texto posicionado sobre a imagem
+ * @positioning: Margem negativa para invadir a área da imagem
+ * @effect: Texto limpo sobre a área de transição da imagem
+ */
+.hero-content {
+    padding: 24px;
+    margin-left: -80px;
+    /* Move o texto para "invadir" a imagem */
+    position: relative;
+    z-index: 2;
+    /* Fica acima da imagem */
+}
+
+.hero-title {
+    font-size: 40px;
+    line-height: 1.1;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/**
+ * TEXTO EXPLICATIVO DO HERO
+ * @description: Parágrafo que explica a proposta de valor
+ * @alignment: Justificado para apresentação formal e profissional
+ * @styling: Cor cinza suave, largura limitada para legibilidade
+ */
+.hero-text {
+    font-size: 14px;
+    color: #d1d1d8;
+    max-width: 420px;
+    margin-bottom: 24px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+/**
+ * ÁREA DE AÇÕES (CALL-TO-ACTION BUTTONS)
+ * @description: Container para botões de conversão
+ * @layout: Flexbox com wrap para responsividade
+ * @gap: 12px entre botões
+ * @strategy: Botão primário + botão secundário para diferentes intenções
+ */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/**
+ * BOTÃO PRIMÁRIO
+ * @description: Call-to-action com fundo translúcido elegante
+ * @styling: Dourado semi-transparente + sombra de destaque
+ * @effect: Translucidez com backdrop-filter para modernidade
+ * @psychology: Elegância translúcida convida ao clique
+ */
+.btn-primary {
+    padding: 10px 22px;
+    border-radius: 22px;
+    border: 1px solid rgba(241, 200, 107, 0.8);
+    background: rgba(241, 200, 107, 0.15);
+    /* Fundo translúcido */
+    color: #f1c86b;
+    /* Texto dourado */
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    /* Efeito de vidro */
+    /* Sombra de fundo destacando */
+    box-shadow:
+        0 6px 16px rgba(241, 200, 107, 0.4),
+        /* Sombra dourada forte */
+        0 3px 8px rgba(241, 200, 107, 0.3),
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        /* Sombra preta sutil */
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Brilho dourado refinado */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 22px;
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.1),
+            transparent 50%,
+            rgba(241, 200, 107, 0.2));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/**
+ * HOVER STATE - BOTÃO PRIMÁRIO
+ * @effect: Torna sólido com gradiente dourado completo (sem movimento)
+ */
+.btn-primary:hover {
+    background: linear-gradient(145deg, #f6d488, #f1c86b);
+    /* Sólido no hover */
+    color: #2c2c30;
+    /* Texto escuro no hover */
+    border: 1px solid #f1c86b;
+    backdrop-filter: none;
+    /* Remove blur no hover */
+    box-shadow:
+        0 8px 20px rgba(241, 200, 107, 0.5),
+        0 4px 10px rgba(241, 200, 107, 0.4),
+        0 12px 30px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::before {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.3),
+            transparent 50%,
+            rgba(241, 200, 107, 0.3));
+}
+
+/**
+ * ACTIVE STATE - BOTÃO PRIMÁRIO (CLIQUE)
+ * @description: Efeito de pressionamento elegante (sem movimento)
+ */
+.btn-primary:active {
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:active::before {
+    background: linear-gradient(145deg,
+            rgba(255, 255, 255, 0.2),
+            transparent 50%,
+            rgba(241, 200, 107, 0.3));
+}
+
+/**
+ * BOTÃO SECUNDÁRIO
+ * @description: Ação alternativa para usuários indecisos
+ * @styling: Outline dourado, fundo transparente
+ * @behavior: Hover inverte cores (preenchimento dourado)
+ * @strategy: Menos proeminente que primário, mas ainda visível
+ */
+.btn-secondary {
+    padding: 10px 22px;
+    border-radius: 22px;
+    border: 1px solid #f1c86b;
+    background: transparent;
+    color: #f1c86b;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #f1c86b;
+    color: #2c2c30;
+}
+
+/**
+ * ==========================================
+ * SEÇÃO 5: FOOTER (RODAPÉ)
+ * ==========================================
+ */
+
+/**
+ * CONTAINER DO FOOTER
+ * @description: Seção inferior com informações institucionais
+ * @spacing: Margin-top de 60px separa do conteúdo principal
+ * @styling: Borda superior sutil, fundo consistente
+ * @purpose: Finalização elegante da página
+ */
+.footer {
+    margin-top: 60px;
+    padding: 40px 0;
+    border-top: 1px solid #3e3e45;
+    background: #2c2c30;
+}
+
+/**
+ * CONTEÚDO DO FOOTER
+ * @alignment: Centralizado para equilíbrio visual
+ * @color: Cinza neutro (#999) - menos destaque que conteúdo principal
+ * @typography: Fonte menor (14px) adequada para informações secundárias
+ */
+.footer-content {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
+/**
+ * PARÁGRAFOS DO FOOTER
+ * @spacing: Line-height 1.6 para legibilidade
+ * @margin: Reset para controle preciso do espaçamento
+ */
+.footer-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/**
+ * PRIMEIRO PARÁGRAFO (COPYRIGHT)
+ * @emphasis: Font-weight 500 para dar destaque legal
+ * @spacing: Margin-bottom de 8px separa do segundo parágrafo
+ */
+.footer-content p:first-child {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/**
+ * ==========================================
+ * SEÇÃO 6: RESPONSIVIDADE (MEDIA QUERIES)
+ * ==========================================
+ */
+
+/**
+ * BREAKPOINT TABLET (MAX 900PX)
+ * @description: Adaptação para tablets e telas médias
+ * @hero_change: Grid vira coluna única (stack vertical)
+ * @content_change: Remove padding direito desnecessário
+ * @title_change: Fonte menor (32px) para caber melhor
+ */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .hero-content {
+        padding-right: 0;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
+}
