@@ -95,4 +95,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inicializar estado ativo
   updateActiveLink();
+
+  // Mobile Menu Toggle
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
+  const navListLinks = document.querySelectorAll(".nav-list a");
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener("click", function () {
+      this.classList.toggle("active");
+      mainNav.classList.toggle("active");
+      document.body.style.overflow = mainNav.classList.contains("active")
+        ? "hidden"
+        : "";
+    });
+
+    // Fechar menu ao clicar em um link
+    navListLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        if (window.innerWidth <= 768) {
+          mobileMenuToggle.classList.remove("active");
+          mainNav.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+    });
+
+    // Toggle dropdown no mobile
+    dropdownToggles.forEach((toggle) => {
+      toggle.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const dropdown = this.parentElement;
+          dropdown.classList.toggle("active");
+        }
+      });
+    });
+  }
 });
