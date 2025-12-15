@@ -559,7 +559,7 @@ ul {
 
 .servicos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 60px;
 }
@@ -568,7 +568,7 @@ ul {
     background: var(--color-section-dark);
     border: 2px solid var(--color-border-light);
     border-radius: 20px;
-    padding: 30px 25px 25px 25px;
+    padding: 22px 20px 20px 20px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -600,12 +600,12 @@ ul {
 
 .servico-icone {
     font-size: 3rem;
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 15px;
+    padding: 12px;
     background: linear-gradient(45deg, var(--color-gold-1), var(--color-gold-3));
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
+    width: 75px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -613,37 +613,37 @@ ul {
 }
 
 .servico-icone img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .servico-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--color-text-light);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .servico-card p {
     color: var(--color-text-muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .servico-card ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     flex-grow: 1;
 }
 
 .servico-card ul li {
     color: var(--color-text-muted);
-    padding: 8px 0;
+    padding: 6px 0;
     position: relative;
-    padding-left: 25px;
-    font-size: 0.9rem;
+    padding-left: 20px;
+    font-size: 0.85rem;
 }
 
 .servico-card ul li::before {
@@ -773,6 +773,17 @@ ul {
     color: var(--color-text-secondary);
 }
 
+.bio-caixa {
+    background: var(--color-section-dark);
+    border: 1px solid var(--color-border-light);
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.bio-caixa p {
+    margin: 0;
+}
+
 .membro-bio p {
     text-align: left;
     line-height: 1.7;
@@ -783,7 +794,7 @@ ul {
    ============================================ */
 
 .faq {
-    padding: 80px 0;
+    padding: 40px 0;
     background: transparent;
     position: relative;
 }
@@ -899,7 +910,7 @@ ul {
    ============================================ */
 
 .contato {
-    padding: 80px 0;
+    padding: 40px 0;
     background: transparent;
     position: relative;
 }
@@ -953,7 +964,7 @@ ul {
     background: var(--color-section-dark);
     border: 2px solid var(--color-bright-gold);
     border-radius: 16px;
-    padding: 32px;
+    padding: 20px;
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -969,24 +980,24 @@ ul {
 }
 
 .contato-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 16px;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 12px;
     object-fit: contain;
     filter: brightness(0) saturate(100%) invert(100%);
 }
 
 .contato-item h3 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--color-text-primary);
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .contato-item p {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--color-bright-gold);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .contato-item a {
