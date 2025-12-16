@@ -280,7 +280,7 @@ ul {
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(0, 0);
+    transform: rotate(45deg);
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
@@ -289,7 +289,7 @@ ul {
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(0, 0);
+    transform: rotate(-45deg);
 }
 
 /* ============================================
@@ -495,7 +495,9 @@ ul {
 .play-button {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--color-gold-1), var(--color-gold-3));
+    background: rgba(217, 174, 95, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--color-bright-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -512,7 +514,7 @@ ul {
 }
 
 .play-button span {
-    color: var(--color-background);
+    color: var(--color-bright-gold);
     font-size: 2rem;
     margin-left: 5px;
     font-weight: bold;
@@ -1302,24 +1304,6 @@ ul {
         margin-top: 8px;
     }
 
-    .dropdown-toggle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-
-    .dropdown-arrow {
-        display: inline-block;
-        font-size: 12px;
-        transition: transform 0.3s ease;
-        margin-left: 8px;
-    }
-
-    .dropdown.active .dropdown-arrow {
-        transform: rotate(180deg);
-    }
-
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -1327,13 +1311,9 @@ ul {
         transform: none;
         background: rgba(217, 174, 95, 0.05);
         margin-top: 8px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .dropdown.active .dropdown-menu {
-        max-height: 300px;
+        max-height: none;
+        overflow: visible;
+        padding: 8px 0;
     }
 
     .hero-title {
