@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.moraisadvocacia.com.br/sitemap.xml
