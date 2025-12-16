@@ -469,7 +469,7 @@ ul {
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-    background: var(--color-background);
+    background: transparent;
     transition: transform 0.3s ease;
 }
 
@@ -513,12 +513,10 @@ ul {
     margin-bottom: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    opacity: 0.85;
 }
 
 .play-button:hover {
     transform: scale(1.1);
-    opacity: 1;
 }
 
 .play-button span {

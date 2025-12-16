@@ -66,6 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!isActive) {
         faqItem.classList.add("active");
+
+        // Scroll suave para a pergunta aberta
+        setTimeout(() => {
+          const headerOffset = 100;
+          const elementPosition =
+            faqItem.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }, 100);
       }
     });
   });
