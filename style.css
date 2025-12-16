@@ -1331,6 +1331,8 @@ ul {
         backdrop-filter: blur(10px);
         transition: left 0.3s ease;
         overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
         z-index: 999;
     }
 
