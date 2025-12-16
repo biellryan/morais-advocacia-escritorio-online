@@ -106,8 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileMenuToggle.addEventListener("click", function () {
       this.classList.toggle("active");
       mainNav.classList.toggle("active");
-      // Permitir rolagem mesmo com o menu aberto no mobile
-      document.body.style.overflow = "";
+      document.body.style.overflow = mainNav.classList.contains("active")
+        ? "hidden"
+        : "";
     });
 
     // Fechar menu ao clicar em um link
