@@ -251,11 +251,16 @@ ul {
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 8px;
+    position: relative;
+    width: 40px;
+    height: 40px;
 }
 
 .mobile-menu-toggle span {
@@ -264,10 +269,21 @@ ul {
     background: var(--color-bright-gold);
     border-radius: 3px;
     transition: all 0.3s ease;
+    display: block;
+}
+
+.mobile-menu-toggle.active {
+    gap: 0;
+    /* remove o gap quando ativo para centralizar */
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
+    transform: rotate(45deg) translate(0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12.5px;
+    margin-top: -1.5px;
 }
 
 .mobile-menu-toggle.active span:nth-child(2) {
@@ -275,7 +291,12 @@ ul {
 }
 
 .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
+    transform: rotate(-45deg) translate(0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12.5px;
+    margin-top: -1.5px;
 }
 
 /* ============================================
@@ -671,19 +692,60 @@ ul {
 
 .servico-card ul li {
     color: var(--color-text-muted);
-    padding: 6px 0;
+    padding: 8px 0;
     position: relative;
-    padding-left: 20px;
-    font-size: 0.85rem;
+    padding-left: 28px;
+    /* evita sobreposição do ícone sobre o texto */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: block;
 }
 
 .servico-card ul li::before {
     content: '✓';
     position: absolute;
-    left: 0;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
     color: var(--color-gold-1);
-    font-weight: bold;
+    font-weight: 700;
     font-size: 1rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Ajustes do card de Aposentadoria em dispositivos móveis */
+@media (max-width: 480px) {
+    #servico-aposentadoria .servico-icone {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 12px;
+    }
+
+    #servico-aposentadoria .servico-card h3 {
+        font-size: 1.2rem;
+    }
+
+    #servico-aposentadoria .servico-card p {
+        font-size: 0.95rem;
+    }
+
+    #servico-aposentadoria .servico-card ul li {
+        font-size: 0.95rem;
+        padding-left: 30px;
+        /* um pouco mais de espaço para o check */
+    }
+}
+
+/* Garantir que o toggle não sobreponha conteúdo do header */
+.mobile-menu-toggle {
+    z-index: 1001;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .servicos-cta {
@@ -1241,10 +1303,18 @@ ul {
         align-items: center;
         justify-content: space-between;
         gap: 0;
+        position: relative;
+        /* permite posicionar o toggle sem cobrir o texto */
     }
 
     .mobile-menu-toggle {
         display: flex;
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+        /* acima do conteúdo do header */
     }
 
     .main-nav {
@@ -1295,13 +1365,10 @@ ul {
         transform: none;
         background: rgba(217, 174, 95, 0.05);
         margin-top: 8px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
-
-    .dropdown.active .dropdown-menu {
         max-height: 300px;
+        /* já expandido por padrão no mobile */
+        overflow: visible;
+        transition: max-height 0.3s ease;
     }
 
     .hero-title {
@@ -1347,6 +1414,15 @@ ul {
     .servico-card {
         padding: 18px 16px;
         text-align: center;
+    }
+
+    /* Evitar sobreposição do ícone de check sobre o texto em listas no mobile */
+    .servico-card ul li {
+        padding-left: 34px;
+    }
+
+    .servico-card ul li::before {
+        left: 10px;
     }
 
     .servico-icone {
@@ -1557,10 +1633,107 @@ ul {
 
     .brand-name {
         font-size: 16px;
+        /* Reserva espaço para o toggle e permite quebra de linha */
+        display: inline-block;
+        margin-right: 56px;
+        /* largura aproximada do botão hambúrguer */
+        max-width: calc(100% - 56px);
+        white-space: normal;
+        /* permitir quebra */
+        word-break: break-word;
+        /* quebra longa se necessário */
+        overflow-wrap: anywhere;
+        /* evita sobreposição em nomes longos */
     }
 
     .contato-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Refino extra para larguras muito pequenas (ex.: 320px) */
+@media (max-width: 360px) {
+    .brand-name {
+        font-size: 15px;
+        margin-right: 60px;
+        max-width: calc(100% - 60px);
+    }
+}
+
+/* Evitar sobreposição de texto dentro dos cards de serviços em telas pequenas */
+@media (max-width: 600px) {
+    .servico-card ul li {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Ajustes para TODOS os cards de serviços em larguras críticas (375px) */
+@media (max-width: 375px) {
+    .servico-card ul li {
+        font-size: 0.88rem;
+        line-height: 1.8;
+        padding-left: 46px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .servico-card ul li::before {
+        left: 8px;
+        font-size: 0.9rem;
+    }
+
+    .servico-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .servico-card h3 {
+        font-size: 1.05rem;
+        line-height: 1.3;
+        word-break: break-word;
+    }
+}
+
+@media (max-width: 320px) {
+    .servico-card {
+        padding: 16px 12px;
+    }
+
+    .servico-card ul li {
+        font-size: 0.85rem;
+        line-height: 1.9;
+        padding-left: 52px;
+        padding-right: 4px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .servico-card ul li::before {
+        left: 6px;
+        font-size: 0.85rem;
+    }
+
+    .servico-card p {
+        font-size: 0.85rem;
+        line-height: 1.65;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .servico-card h3 {
+        font-size: 1rem;
+        line-height: 1.3;
+        word-break: break-word;
+        margin-bottom: 10px;
     }
 }
 
