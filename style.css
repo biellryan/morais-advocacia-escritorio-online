@@ -513,12 +513,12 @@ ul {
     margin-bottom: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(217, 174, 95, 0.3);
+    opacity: 0.85;
 }
 
 .play-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 15px 40px rgba(217, 174, 95, 0.5);
+    opacity: 1;
 }
 
 .play-button span {
